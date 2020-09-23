@@ -59,7 +59,7 @@ if st.button("submit"):
 # if inp.lower() == "quit":
 # 	break
 # st.write(type(inp))
-results = model.predict([bag_of_words(inp, words)])
+results = model.predict([bag_of_words(inp, words)]) [0]
 results_index = numpy.argmax(results)
 tag = labels[results_index]
 
