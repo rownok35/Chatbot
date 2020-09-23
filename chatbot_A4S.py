@@ -53,11 +53,11 @@ def bag_of_words(s, words):
 
 string = st.text_area("chat here")
 if st.button("submit"):
-	inp=string
+    inp=string
 
 
 # if inp.lower() == "quit":
-# 	break
+#   break
 # st.write(type(inp))
 results = model.predict([bag_of_words(inp, words)])[0]
 results_index = numpy.argmax(results)
@@ -76,5 +76,3 @@ if results[results_index] > 0.8:
 else:
     st.write("Bot: ")
     st.error("i didn't get it. Ask another question")
-
-
