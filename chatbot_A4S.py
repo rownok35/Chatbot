@@ -63,13 +63,18 @@ results = model.predict([bag_of_words(inp, words)])
 results_index = numpy.argmax(results)
 tag = labels[results_index]
 
-for tg in data["intents"]:
-	if tg['tag'] == tag:
-		responses = tg['responses']
+if results[results_index] > 0.8:
 
-# print(random.choice(responses))
-st.write("Bot: ")
-result = random.choice(responses)
-st.success(result)
+    for tg in data["intents"]:
+
+        if tg['tag'] == tag:
+            responses = tg['responses']
+
+    st.write("Bot: ")
+    result = random.choice(responses)
+    st.success(result)
+else:
+    st.write("Bot: ")
+    st.error("i didn't get it. Ask another question")
 
 
